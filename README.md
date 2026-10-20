@@ -1,5 +1,9 @@
 # FlightRadar
 
+
+<img width="1934" height="1108" alt="image" src="https://github.com/user-attachments/assets/1447b9d7-7c89-48f1-88e4-943601264a06" />
+
+
 The flight radar from rouwendal.dev as a separate Next.js app (App Router), with
 no database. Everything is configured in `.env`.
 
