@@ -1,0 +1,58 @@
+.fr-refresh {
+  position: fixed;
+  z-index: 10;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 300ms ease;
+}
+.fr-refresh.is-visible {
+  opacity: 1;
+  transition-duration: 120ms;
+}
+.fr-refresh-led {
+  top: 14px;
+  right: 14px;
+}
+.fr-refresh-light {
+  top: min(0.6vh, 0.34vw);
+  right: min(0.6vh, 0.34vw);
+}
+.fr-refresh-dot {
+  display: block;
+  border-radius: 999px;
+  background: #e11486;
+}
+/* Only pulse while shown: an invisible animation still costs frames. */
+.fr-refresh.is-visible .fr-refresh-dot {
+  animation: fr-pulse 1s ease-in-out infinite;
+}
+.fr-refresh-led .fr-refresh-dot {
+  width: 10px;
+  height: 10px;
+  box-shadow: 0 0 8px 2px rgba(225, 20, 134, 0.7);
+}
+.fr-refresh-light .fr-refresh-dot {
+  width: min(1.2vh, 0.67vw);
+  height: min(1.2vh, 0.67vw);
+  min-width: 8px;
+  min-height: 8px;
+}
+.fr-refresh-label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+@keyframes fr-pulse {
+  50% {
+    transform: scale(0.6);
+    opacity: 0.55;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .fr-refresh-dot {
+    animation: none;
+  }
+}
